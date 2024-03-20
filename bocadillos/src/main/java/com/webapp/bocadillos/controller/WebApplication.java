@@ -40,7 +40,7 @@ public class WebApplication {
 	private void llenarTablasDeDatos() {
 		// Creamos bocadillo choripan con dos ingredientes
 		Ingrediente in1 = new Ingrediente("Lomo", false);
-		Ingrediente in2 = new Ingrediente("Queso", true);
+		Ingrediente in2 = new Ingrediente("Queso de Cabrales", true);
 		Bocadillo bocata1 = new Bocadillo("Bocadillo de lomoqueso", false, 6.75);
 		bocata1.getIngredientes().add(in1);
 		bocata1.getIngredientes().add(in2);
@@ -60,10 +60,12 @@ public class WebApplication {
 		
 		//Creamos alumno y asociamos el pedido anterior
 		Alumno alumno = new Alumno("Paquita");
+		Alumno alumno2 = new Alumno("Juan");
 		alumno.getPedidos().add(pedido);
 		pedido.setAlumno(alumno);
 		
 		alumnoService.insertarAlumno(alumno);
+		alumnoService.insertarAlumno(alumno2);
 		//Test
 		bocadilloService.insertarBocadillo(bocata1);
 		bocadilloService.insertarBocadillo(bocata2);
