@@ -64,7 +64,7 @@ public class WebApplication {
 		pedido.setAlumno(alumno);
 		
 		alumnoService.insertarAlumno(alumno);
-		//
+		//Test
 		bocadilloService.insertarBocadillo(bocata1);
 		bocadilloService.insertarBocadillo(bocata2);
 		
