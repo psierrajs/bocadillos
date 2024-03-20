@@ -3112,3 +3112,35 @@ org.thymeleaf.exceptions.TemplateProcessingException: Could not parse as each: "
 2024-03-20T11:39:41.190+01:00  INFO 6044 --- [bocadillos] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8095 (http) with context path ''
 2024-03-20T11:39:41.194+01:00  INFO 6044 --- [bocadillos] [restartedMain] c.w.bocadillos.BocadillosApplication     : Started BocadillosApplication in 0.926 seconds (process running for 420.658)
 2024-03-20T11:39:41.196+01:00  INFO 6044 --- [bocadillos] [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2024-03-20T11:41:42.356+01:00  INFO 6044 --- [bocadillos] [http-nio-8095-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-03-20T11:41:42.356+01:00  INFO 6044 --- [bocadillos] [http-nio-8095-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-03-20T11:41:42.358+01:00  INFO 6044 --- [bocadillos] [http-nio-8095-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2024-03-20T11:42:06.073+01:00  INFO 6044 --- [bocadillos] [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2024-03-20T11:42:06.090+01:00  INFO 6044 --- [bocadillos] [Thread-11] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-03-20T11:42:06.091+01:00  INFO 6044 --- [bocadillos] [Thread-11] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Shutdown initiated...
+2024-03-20T11:42:06.095+01:00  INFO 6044 --- [bocadillos] [Thread-11] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Shutdown completed.
+2024-03-20T11:42:06.166+01:00  INFO 6044 --- [bocadillos] [restartedMain] c.w.bocadillos.BocadillosApplication     : Starting BocadillosApplication using Java 17.0.10 with PID 6044 (C:\Users\JuanP\git\repository\bocadillos\target\classes started by JuanP in C:\Users\JuanP\git\repository\bocadillos)
+2024-03-20T11:42:06.166+01:00  INFO 6044 --- [bocadillos] [restartedMain] c.w.bocadillos.BocadillosApplication     : No active profile set, falling back to 1 default profile: "default"
+2024-03-20T11:42:06.311+01:00  INFO 6044 --- [bocadillos] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-03-20T11:42:06.326+01:00  INFO 6044 --- [bocadillos] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 14 ms. Found 5 JPA repository interfaces.
+2024-03-20T11:42:06.400+01:00  INFO 6044 --- [bocadillos] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8095 (http)
+2024-03-20T11:42:06.400+01:00  INFO 6044 --- [bocadillos] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-03-20T11:42:06.400+01:00  INFO 6044 --- [bocadillos] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.19]
+2024-03-20T11:42:06.418+01:00  INFO 6044 --- [bocadillos] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-03-20T11:42:06.418+01:00  INFO 6044 --- [bocadillos] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 250 ms
+2024-03-20T11:42:06.450+01:00  INFO 6044 --- [bocadillos] [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-03-20T11:42:06.452+01:00  INFO 6044 --- [bocadillos] [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-03-20T11:42:06.457+01:00  INFO 6044 --- [bocadillos] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-03-20T11:42:06.458+01:00  INFO 6044 --- [bocadillos] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-4 - Starting...
+2024-03-20T11:42:06.474+01:00  INFO 6044 --- [bocadillos] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-4 - Added connection com.mysql.cj.jdbc.ConnectionImpl@1a3c0e2c
+2024-03-20T11:42:06.474+01:00  INFO 6044 --- [bocadillos] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-4 - Start completed.
+2024-03-20T11:42:06.474+01:00  WARN 6044 --- [bocadillos] [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-03-20T11:42:06.474+01:00  WARN 6044 --- [bocadillos] [restartedMain] org.hibernate.orm.deprecation            : HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2024-03-20T11:42:06.539+01:00  INFO 6044 --- [bocadillos] [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-03-20T11:42:07.005+01:00  INFO 6044 --- [bocadillos] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-03-20T11:42:07.132+01:00  WARN 6044 --- [bocadillos] [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-03-20T11:42:07.138+01:00  INFO 6044 --- [bocadillos] [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2024-03-20T11:42:07.223+01:00  INFO 6044 --- [bocadillos] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2024-03-20T11:42:07.233+01:00  INFO 6044 --- [bocadillos] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8095 (http) with context path ''
+2024-03-20T11:42:07.238+01:00  INFO 6044 --- [bocadillos] [restartedMain] c.w.bocadillos.BocadillosApplication     : Started BocadillosApplication in 1.095 seconds (process running for 566.702)
+2024-03-20T11:42:07.239+01:00  INFO 6044 --- [bocadillos] [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
