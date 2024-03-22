@@ -1,41 +1,211 @@
 <!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hola Mundo</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-</head>
-<body>
-    <h1>Esta es la plantilla "alumnos"</h1>
-    <table class="table table-hover">
-		<thead class="table-dark bg-info text-white">
-			<tr>
-				<th scope="col">Id</th>
-				<th scope="col">Nombre</th>
-				<th scope="col">Editar</th>
-				<th scope="col">Borrar</th>
-			</tr>
-			
-		</thead>
-    <tbody>
-        <tr th:if="${alumnos.empty}">
-            <td colspan="2">No hay alumnos</td>
-        </tr>
-        <tr th:each="alumno: ${alumnos}">
-			<td>
-				<a class="btn btn-primary btn-sm" th:href="@{/alumnos/{id}(id=${alumno.id})}">
-					<span th:text="${alumno.id}">Id</span>
-				</a>
-			</td>
-			<td>
-				<span th:text="${alumno.nombre}">Nombre</span>
-			</td>
+<html lang="en">
 
+<head th:insert="librerias::librerias">
+
+  	<meta charset="utf-8">
+  	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  	<meta name="description" content="Una web preciosa y maravillosa">
+  	<meta name="author" content="">
+
+	
+  	<title>Alumnos</title>
+  
+
+
+
+<script type="text/javascript" src="https://me.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=z6peJYIQUzV4NxhgiXQ3LoIa6CWsDRtZu0JQE1LcOGVkzILjvMPTgEolPuZH-muwETHLOqffg_mQtt3xy9EiCYV6cnRJpU5TPm91bgVUm6DVDpnnmexirwKx-Epju6sR3ka9YjX1-vUHrNxs5VAGGFraKouAKR_OnW-8OkBGH9T4bQbIcN643ME8p3Ox_5uuaQR0HDneJ4g4kmPVCnvSwB0ynoKVVKfQ6gt-xn--8GHSR5rT3l1pzkJEK1ZgKeX6dxcVi2qNAnqXsDUjtsV-2DFJ9cUgPfmeYf8wU-UyiTj4tV1l2mJyR2AnYunsAyRYKTwky8o_8nGU6LqzR40ySD_ieB4u7F6cDs9QfkfTQWTrD6WuuNoDT_OcWloBfmXA3Np0pVfeM3WYilyQLhvkPU2vVVYROkM3LDO26PclA-nMqPCO3wkSWUp78TsnoQZafxYOyUTBpc0vsEHyvVT6NR2pmyCLpdbcM9gQkrFxMHXskPX6yuw05l6zxtOgNq7e-PsuMA6o2r7V5QgXexY-gANUPbg-7WFnAVZrm0cCCiGnCmQrFbjHSneq4aFZdoteo_ApEtUSlGXwT-Qjg8Sin9VHCsDtzktA0W-vSEvgWVi8FocrdlkVZaI8J7pI8vEBNjxJmI0WWXtTOxgo74P5jYiP2wuW2E0q8A-zjVgnvNay_zqosSmcd-4vcN30FLlw9bTJyEZn0o-jJEt-s2FdfixvVucaXNVAdWHX6J87Tdt9iLxHPs6ZinUR3R54-JYCaskfAj7bU74Dsp0EglFTcTDD8H1u1hEMraWxF37mzl6PR1AZhsxFbPloZJHXVhngsWQPAEHYsUzSBaQUF8Phz5teTXCTQ3FAwOLUJbhd5ESWCsSbrQil6-VyP3MTAJzZcZOJduAiLsNprdZQ-XS6inC6Q83A_p-PYTBmvaSKem6ErhwgtP-LGkSmoUzY3BD4HaAsv-URvpsGeFLyGONmsdSjIQo2ajDdxEkKFsut0ALJ7V8BCDwuXkcVaVKhEYD7snlIMFV3QakrR6tnsZhDWOcAB27GPPRSA5joztMLmnUUwBKhSpUrZ-O4S89MeFT7EyUALq-N8B_VpBBMQ5B8N3ZccL9IKMt9Hp9v57oDj0PlSvMLcD5pf9krg2G-hQXF7KzFALDyz1v-AGHWwaviK2E7AqdywAZ1BwVCvvUkjp9uXnDx1SP5EDMTkcoPqtpn2tRNEuWMgiIBqZd544woLBZWMYVHPqPxiCzPgeENyNmWgExv_iPrUAUdBzn_QiDjz2Kz3WXKSH6v41wcbN_v18QJH3Zn_N-SJnOALsQxqfHPgJGtiiUJOmq26-vIWE2mqXWqoYEjnE9qlZ6Rer6cvWNXwsv9FrMsdVg62gKscUseFss_hw6tBT5cRGitMf5-0D4gB2f2_FXPpbzqF-LUt1shY6x6E9RO5srzqRoYQxamxBa0_wvfW98YmIGNYX8rtPMZcbEtohLmAr7Aqv5aUvwuvhqS_nFztW1hvzPtRls6HnNp7WL5eJPwhD14qb5hQDXdK20Mi7K8UOMgCp5Y6-uKLJ6enw21u-APukwUagTnuLxyHXTfw5tXxTmd9zmOcCrCdXOdvaytn0QbISGLBp21V97LQJiEXcaIuqDOg9HlPVrD5ZVANd4UbRt-cPcUYCs1fUP-k0eGn1wRfAmAK_8pwAP5z7NElYsAQ8MZxVBwRFE-kaIk-__-rSIo9W98jJtGhE-n5d5scG9CEdXxZyC7JrsV7GPv8PTY0MRAgO1J6R5LbzkB7PZUNVntTTe1VRurJRMf_VhHghXc9pWGwdtrXPWTuU4jOSIQ7miXoS73Lc_o8DT2mzorHMmqzLTRq-U5bi2MDnEGwUcRyDx_nlDnQ307HCAhnglP0mz5tAOlGYe0Pb3-nrW0K0whr-Yu" charset="UTF-8"></script></head>
+
+<body id="page-top">
+  <!-- top -->
+        <!-- top -->
+        <!-- top -->
+ 		<div th:insert="top::top"></div>
+<div class="container">
+      
+
+	<div class="m-5">
+	<nav aria-label="breadcrumb">
+	  <ol class="breadcrumb">
+	    <li class="breadcrumb-item">
+	    	<a href="/">
+                 <i class="fas fa-home fa-sm fa-fw mr-3 text-gray-600"></i>
+            </a>
+        </li>
+	    <li class="breadcrumb-item">Alumnos</li>
+	  </ol>
+	</nav>
+	</div>
+
+  <!-- lista de alumnos -->
+<table class="table  table-hover">
+    <thead class="table-dark bg-info text-white  ">
+        <tr>
+            <th scope="col"> Id </th>
+            <th scope="col"> Nombre </th>
+            <th scope="col"> Editar </th>
+            <th scope="col"> Borrar </th>
+        </tr>
+    </thead>
+    <tbody>
+		<tr th:if="${alumnos.empty}">
+            <td colspan="2"> No hay alumnos</td>
+        </tr>
+        <tr th:each="alumno : ${alumnos}">
+        
+	        <td>
+	        	<a class="btn btn-primary btn-sm" th:href="@{/alumnos/{id}(id=${alumno.id})}">
+	        		<span th:text="${alumno.id}">Id</span>
+	        	</a>
+	        </td>     
+         
+            <td>
+            		<span th:text="${alumno.nombre}"> Nombre </span>
+            </td>
+            
+          	 <td >
+			        <!--<a class="btn btn-primary btn-sm" th:href="@{/alumnos/edit/{id}(id=${alumno.id})}">*</a>-->
+			        <a  class="btn btn-primary btn-sm btn-sm text-white pointer" style="cursor:pointer" data-toggle="modal" data-target="#modal-edit" th:attr="data-target='#modal-edit'+${alumno.id}">*</a>
+			</td>
+		     <td>
+		        	<a  class="btn btn-danger btn-sm text-white pointer" style="cursor:pointer" data-toggle="modal" data-target="#modal-delete" th:attr="data-target='#modal-delete'+${alumno.id}">x</a>
+		    </td>
+				        
+				        
+			<!-- edit modal-->	        
+			<div class="modal fade"  th:id="modal-edit+${alumno.id}">
+				<div class="modal-dialog" role="document">
+					<div class="modal-content">
+				        <div class="modal-header">
+				          <h4 class="modal-title" id="exampleModalLabel">Editar</h4>
+				          <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+				            <span aria-hidden="true">×</span>
+				          </button>
+				        </div>
+			            <div class="modal-body">
+			                <p class="error-text">Introduce nombre nuevo para el alumno/a:  
+			                <strong><span th:text="${alumno.nombre}"></span></strong></p>
+			            
+			            
+			            <!-- Formulario edit alumno-->
+						    <form action="#" th:action="@{/alumnos/edit/{id}(id=${alumno.id})}" th:object="${alumnoaEditar}" method="post">
+						          <div class="form-row">
+								    <div class="form-group  mt-1">
+								      <label for="texto">Nombre</label>
+								      <input type="text" th:field="*{nombre}" class="form-control" id="exampleInputEmail1"  th:attr="placeholder=${alumno.nombre}"/>
+			   						<!--	<input type="hidden" th:field="*{id}"> -->
+								         </div>
+				                  </div>					   
+						        
+		
+			               
+			             </div>
+			            <div class="modal-footer">
+			                <button class="btn btn-secondary btn-sm" data-dismiss="modal" aria-hidden="true">
+			                    Cancelar
+			                </button>
+			                <input type="submit" value="Editar" class="btn btn-primary float-right">
 			
-		</tr>
+			            </div> </form>
+			        </div>
+			        <!-- /.modal-content -->
+			    </div>
+			    <!-- /.modal-dialog -->
+			</div>
+			<!--end edit modal-->	        
+			
+			<!--delete modal-->        
+			<div class="modal fade"  th:id="modal-delete+${alumno.id}">
+				<div class="modal-dialog" role="document">
+					<div class="modal-content">
+				        <div class="modal-header">
+				          <h4 class="modal-title" id="exampleModalLabel">Borrar</h4>
+				          <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+				            <span aria-hidden="true">×</span>
+				          </button>
+				        </div>
+			            <div class="modal-body">
+			                <p class="error-text"><strong>¿Seguro que deseas borrar a 
+			                	<span th:text="${alumno.nombre}"></span>?</strong></p>
+			            </div>
+			            <div class="modal-footer">
+			                <button class="btn btn-secondary btn-sm" data-dismiss="modal" aria-hidden="true">
+			                    Cancelar
+			                </button>
+			                <a th:href="@{/alumnos/delete/{id}(id=${alumno.id})}">
+			                    <span class="btn btn-danger btn-sm" value="delete">Borrar</span></a>
+			
+			            </div>
+			        </div>
+			        <!-- /.modal-content -->
+			    </div>
+			    <!-- /.modal-dialog -->
+			</div>
+			<!--end delete modal-->				        
+				        
+          
+            
+        </tr>
     </tbody>
-    </table>
-   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</table>
+
+
+		<div class="col-2 float-right">
+        <div class="p-5">
+			<button type="button" class="btn btn-primary float-right" data-toggle="modal" data-target="#crearMensaje" >
+				+
+			</button>
+
+        </div>       
+      </div> 
+      
+        <!-- Añadir carpeta modal -->
+		  <div class="modal fade" id="crearMensaje" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		    <div class="modal-dialog" role="document">
+		      <div class="modal-content">
+		        <div class="modal-header">
+		          <h4 class="modal-title" id="exampleModalLabel">Nuevo Alumno</h4>
+		          <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+		            <span aria-hidden="true">×</span>
+		          </button>
+		        </div>
+
+				
+
+
+                <form action="#" th:action="@{/alumnos/add}" th:object="${nuevoAlumno}" method="post">
+			        <div class="modal-body">			        
+					  <div class="form-row">
+					    <div class="form-group  mt-4">
+					      <label for="texto">Nombre</label>
+					      <input type="text" th:field="*{nombre}"class="form-control" id="exampleInputEmail1"  placeholder="Nombre"/>
+   							 
+					         </div>
+	                  </div>					   
+			        </div>
+			        
+			        <div class="modal-footer">
+		                <input type="submit" value="Añadir" class="btn btn-primary float-right">
+		                <button data-dismiss="modal" class="btn btn-outline-danger float-right mr-2">Cancelar</button>
+			        </div>
+                </form>
+		      </div>
+		      
+		    </div>
+		  </div>
+		  
+		  
+ 
+  
+  
+  
+  
+</div>
 </body>
+
+
+
+		
+
+
 </html>
