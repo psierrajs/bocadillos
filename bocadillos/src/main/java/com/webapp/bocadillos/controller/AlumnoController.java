@@ -85,7 +85,7 @@ public class AlumnoController {
 	
 	 
 	/*@GetMapping("/edit/{id}")
-	public String editarAlumnoe(@PathVariable Integer id ) {
+	public String editarAlumno(@PathVariable Integer id ) {
 		
 		Alumno alumnoAEditar = alumnoService.obtenerAlumno(id);
 		//crudAlumno.eliminarRegistro(alumno);
@@ -109,7 +109,7 @@ public class AlumnoController {
 		return "alumno";
 	}
 	
-	@GetMapping({"/delete/{id}"})
+	@GetMapping(value = {"/delete/{id}"})
 	public String borrarAlumno(@PathVariable Integer id) {
 		
 		//Alumno alumno = crudAlumno.buscarPorId(id);
